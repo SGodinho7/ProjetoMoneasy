@@ -23,15 +23,7 @@ public class ApiConnect {
             os.writeBytes(params[1]);
             os.flush();
             os.close();
-
-            InputStream in = httpURLConnection.getInputStream();
-            InputStreamReader inputStreamReader = new InputStreamReader(in);
-
-            int inputStreamData = inputStreamReader.read();
-            while (inputStreamData != -1) {
-                char current = (char) inputStreamData;
-                inputStreamData = inputStreamReader.read();
-            }
+            httpURLConnection.getResponseCode();
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
