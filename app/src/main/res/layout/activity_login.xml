@@ -15,7 +15,6 @@
         android:backgroundTint="@color/SecBlueColor"
         android:text="Vitor"
         android:textSize="20sp"
-        app:iconTint="#8E7979"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
