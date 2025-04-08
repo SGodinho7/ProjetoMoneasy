@@ -5,15 +5,15 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddValueActivity">
+    tools:context=".AddTransactionActivity">
 
-    <EditText
-        android:id="@+id/et_category"
+    <Spinner
+        android:id="@+id/sp_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="8"
         android:hint="Categoria..."
-        android:inputType="text|textMultiLine"
+        android:text="Spinner"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewCategory"
         app:layout_constraintStart_toStartOf="@+id/et_description"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="8"
-        android:hint="Descreva o valor..."
+        android:hint="Descrição..."
         android:inputType="text|textMultiLine"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewDescription"

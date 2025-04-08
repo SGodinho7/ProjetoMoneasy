@@ -1,21 +1,21 @@
 package com.example.projetomoneasy;
 
+import android.util.Log;
+
 import java.io.DataOutputStream;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ApiConnect {
 
-    protected void postData(String... params) {
+    protected void postTransactionData(String... params) {
 
         HttpURLConnection httpURLConnection = null;
         try {
 
             httpURLConnection = (HttpURLConnection) new URL(params[0]).openConnection();
             httpURLConnection.setRequestMethod("POST");
-            httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=utf-8");
+            httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
 
             httpURLConnection.setDoOutput(true);
 
@@ -23,7 +23,8 @@ public class ApiConnect {
             os.writeBytes(params[1]);
             os.flush();
             os.close();
-            httpURLConnection.getResponseCode();
+
+            Log.d("API", "Response Code: " + httpURLConnection.getResponseCode());
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

@@ -1,12 +1,11 @@
 package com.example.projetomoneasy;
 
-import com.example.projetomoneasy.ApiConnect;
-
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -16,7 +15,7 @@ import org.json.JSONObject;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class AddValueActivity extends AppCompatActivity {
+public class AddTransactionActivity extends AppCompatActivity {
 
     ExecutorService executorService = Executors.newSingleThreadExecutor();
     ApiConnect api = new ApiConnect();
@@ -24,17 +23,22 @@ public class AddValueActivity extends AppCompatActivity {
     EditText value;
     EditText date;
     EditText desc;
-    EditText category;
+    Spinner category;
+    String[] categories = {"Residencia", "Automovel", "Compras", "Servicos"};
+    ArrayAdapter<String> adapterCategories;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_value);
+        setContentView(R.layout.activity_add_transaction);
 
         value = (EditText) findViewById(R.id.et_value);
         date = (EditText) findViewById(R.id.et_date);
         desc = (EditText) findViewById(R.id.et_description);
-        category = (EditText) findViewById(R.id.et_category);
+        category = (Spinner) findViewById(R.id.sp_category);
+
+        adapterCategories = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, categories);
+        category.setAdapter(adapterCategories);
 
         buttonsubmit = (Button) findViewById(R.id.button_submit);
         buttonsubmit.setOnClickListener(new View.OnClickListener() {
@@ -45,12 +49,12 @@ public class AddValueActivity extends AppCompatActivity {
                     postData.put("value", value.getText().toString());
                     postData.put("date", date.getText().toString());
                     postData.put("desc", desc.getText().toString());
-                    postData.put("category", category.getText().toString());
+                    postData.put("category", category.getSelectedItem().toString());
 
                     executorService.execute(new Runnable() {
                         @Override
                         public void run() {
-                            api.postData("http://10.0.2.2:5000/api/post-value", postData.toString());
+                            api.postTransactionData("http://10.0.2.2:5000/api/post-transaction", postData.toString());
                         }
                     });
                     executorService.shutdown();
