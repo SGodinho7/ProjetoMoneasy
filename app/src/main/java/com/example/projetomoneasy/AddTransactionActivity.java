@@ -24,7 +24,7 @@ public class AddTransactionActivity extends AppCompatActivity {
     EditText date;
     EditText desc;
     Spinner category;
-    String[] categories = {"Residencia", "Automovel", "Compras", "Servicos"};
+    String[] categories = {"Residência", "Automovel", "Compras", "Servicos"};
     ArrayAdapter<String> adapterCategories;
 
     @Override

@@ -2,7 +2,9 @@ package com.example.projetomoneasy;
 
 import android.util.Log;
 
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -20,9 +22,13 @@ public class ApiConnect {
             httpURLConnection.setDoOutput(true);
 
             DataOutputStream os = new DataOutputStream(httpURLConnection.getOutputStream());
-            os.writeBytes(params[1]);
-            os.flush();
+            BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
+            writer.write(params[1]);
+            writer.close();
             os.close();
+            /*os.writeBytes(params[1]);
+            os.flush();
+            os.close();*/
 
             Log.d("API", "Response Code: " + httpURLConnection.getResponseCode());
         } catch (Exception e) {
