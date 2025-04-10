@@ -24,7 +24,7 @@ public class AddTransactionActivity extends AppCompatActivity {
     EditText date;
     EditText desc;
     Spinner category;
-    String[] categories = {"Residência", "Automovel", "Compras", "Servicos"};
+    String[] categories = {"Residência", "Automóvel", "Compras", "Serviços"};
     ArrayAdapter<String> adapterCategories;
 
     @Override
@@ -32,15 +32,15 @@ public class AddTransactionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_transaction);
 
-        value = (EditText) findViewById(R.id.et_value);
-        date = (EditText) findViewById(R.id.et_date);
-        desc = (EditText) findViewById(R.id.et_description);
-        category = (Spinner) findViewById(R.id.sp_category);
+        value = findViewById(R.id.et_value);
+        date = findViewById(R.id.et_date);
+        desc = findViewById(R.id.et_description);
+        category = findViewById(R.id.sp_category);
 
         adapterCategories = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, categories);
         category.setAdapter(adapterCategories);
 
-        buttonsubmit = (Button) findViewById(R.id.button_submit);
+        buttonsubmit = findViewById(R.id.button_submit);
         buttonsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
