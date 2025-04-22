@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/MainBlueColor"
+    tools:context=".SigninActivity">
+
+    <Button
+        android:id="@+id/button_signin_confirm"
+        android:layout_width="134dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/SecBlueColor"
+        android:text="Criar"
+        android:textSize="20sp"
+        app:layout_constraintStart_toEndOf="@+id/button_signin_cancel"
+        app:layout_constraintTop_toBottomOf="@+id/et_signin_password" />
+
+    <Button
+        android:id="@+id/button_signin_cancel"
+        android:layout_width="134dp"
+        android:layout_height="78dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="@color/SecBlueColor"
+        android:text="Cancelar"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_signin_password" />
+
+    <TextView
+        android:id="@+id/textViewSignin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="148dp"
+        android:text="Cadatrar novo usuário"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewSigninName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="48dp"
+        android:freezesText="true"
+        android:text="Nome"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSignin" />
+
+    <TextView
+        android:id="@+id/textViewSigninEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:freezesText="true"
+        android:text="E-Mail"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textViewSigninName"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSigninName" />
+
+    <TextView
+        android:id="@+id/textViewSigninPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:freezesText="true"
+        android:text="Senha"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textViewSigninName"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSigninEmail" />
+
+    <EditText
+        android:id="@+id/et_signin_name"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="Seu nome..."
+        android:inputType="text"
+        android:shadowColor="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#AAFFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSigninName"
+        app:layout_constraintStart_toEndOf="@+id/textViewSigninName"
+        app:layout_constraintTop_toTopOf="@+id/textViewSigninName"
+        app:layout_constraintVertical_bias="0.571" />
+
+    <EditText
+        android:id="@+id/et_signin_email"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="Seu e-mail..."
+        android:inputType="textEmailAddress"
+        android:shadowColor="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#AAFFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSigninEmail"
+        app:layout_constraintStart_toEndOf="@+id/textViewSigninEmail"
+        app:layout_constraintTop_toTopOf="@+id/textViewSigninEmail" />
+
+    <EditText
+        android:id="@+id/et_signin_password"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="48dp"
+        android:backgroundTint="#FFFFFF"
+        android:ems="10"
+        android:hint="Sua senha..."
+        android:inputType="text|textPassword"
+        android:shadowColor="#FFFFFF"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#AAFFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewSigninPassword"
+        app:layout_constraintStart_toEndOf="@+id/textViewSigninPassword"
+        app:layout_constraintTop_toTopOf="@+id/textViewSigninPassword" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

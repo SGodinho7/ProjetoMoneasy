@@ -40,7 +40,7 @@ public class AddTransactionActivity extends AppCompatActivity {
         adapterCategories = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, categories);
         category.setAdapter(adapterCategories);
 
-        buttonsubmit = findViewById(R.id.button_submit);
+        buttonsubmit = findViewById(R.id.button_transaction_confirm);
         buttonsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
