@@ -10,7 +10,7 @@ import java.net.URL;
 
 public class ApiConnect {
 
-    protected void postTransactionData(String... params) {
+    protected void postData(String... params) {
 
         HttpURLConnection httpURLConnection = null;
         try {

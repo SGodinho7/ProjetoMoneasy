@@ -44,17 +44,17 @@ public class AddTransactionActivity extends AppCompatActivity {
         buttonsubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                JSONObject postData = new JSONObject();
+                JSONObject post_data = new JSONObject();
                 try {
-                    postData.put("value", value.getText().toString());
-                    postData.put("date", date.getText().toString());
-                    postData.put("desc", desc.getText().toString());
-                    postData.put("category", category.getSelectedItem().toString());
+                    post_data.put("value", value.getText().toString());
+                    post_data.put("date", date.getText().toString());
+                    post_data.put("desc", desc.getText().toString());
+                    post_data.put("category", category.getSelectedItem().toString());
 
                     executorService.execute(new Runnable() {
                         @Override
                         public void run() {
-                            api.postTransactionData("http://10.0.2.2:5000/api/post-transaction", postData.toString());
+                            api.postData("http://10.0.2.2:5000/api/post-transaction", post_data.toString());
                         }
                     });
                     executorService.shutdown();

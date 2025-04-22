@@ -36,16 +36,16 @@ public class SigninActivity extends AppCompatActivity {
         button_confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                JSONObject postData = new JSONObject();
+                JSONObject post_data = new JSONObject();
                 try {
-                    postData.put("name", name.getText().toString());
-                    postData.put("email", email.getText().toString());
-                    postData.put("password", password.getText().toString());
+                    post_data.put("name", name.getText().toString());
+                    post_data.put("email", email.getText().toString());
+                    post_data.put("password", password.getText().toString());
 
                     executorService.execute(new Runnable() {
                         @Override
                         public void run() {
-                            api.postTransactionData("http://10.0.2.2:5000/api/post-user", postData.toString());
+                            api.postData("http://10.0.2.2:5000/api/post-user", post_data.toString());
                         }
                     });
                     executorService.shutdown();
