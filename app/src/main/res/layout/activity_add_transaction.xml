@@ -10,7 +10,7 @@
     <Spinner
         android:id="@+id/sp_category"
         android:layout_width="161dp"
-        android:layout_height="38dp"
+        android:layout_height="48dp"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="@+id/textViewCategory"
         app:layout_constraintStart_toStartOf="@+id/et_description"
@@ -116,8 +116,8 @@
         android:layout_height="70dp"
         android:layout_marginEnd="324dp"
         android:layout_marginBottom="16dp"
-        android:backgroundTint="@color/MainBlueColor"
-        android:text="+"
+        android:backgroundTint="#ED0000"
+        android:text="x"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />

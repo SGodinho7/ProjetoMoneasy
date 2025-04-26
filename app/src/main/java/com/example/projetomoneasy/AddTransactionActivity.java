@@ -20,6 +20,7 @@ public class AddTransactionActivity extends AppCompatActivity {
     ExecutorService executorService = Executors.newSingleThreadExecutor();
     ApiConnect api = new ApiConnect();
     Button buttonsubmit;
+    Button buttoncancel;
     EditText value;
     EditText date;
     EditText desc;
@@ -62,6 +63,14 @@ public class AddTransactionActivity extends AppCompatActivity {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+            }
+        });
+
+        buttoncancel = findViewById(R.id.button_transaction_cancel);
+        buttoncancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
