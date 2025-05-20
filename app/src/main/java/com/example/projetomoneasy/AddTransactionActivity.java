@@ -47,6 +47,7 @@ public class AddTransactionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 JSONObject post_data = new JSONObject();
                 try {
+                    post_data.put("id_user", PMApplication.getCurrentUser().getId());
                     post_data.put("value", value.getText().toString());
                     post_data.put("date", date.getText().toString());
                     post_data.put("desc", desc.getText().toString());
