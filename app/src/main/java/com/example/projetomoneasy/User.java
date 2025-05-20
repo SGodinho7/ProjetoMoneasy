@@ -1,16 +1,21 @@
 package com.example.projetomoneasy;
 
 public class User {
+    private int id;
     private String nome;
     private String email;
     private String senha;
     private float saldo_total;
 
-    public void setInfo(String nome, String email, String senha, float saldo) {
+    public void setInfo(int id, String nome, String email, String senha) {
+        this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.saldo_total = saldo;
+    }
+
+    public int getId() {
+        return this.id;
     }
 
     public float getSaldo() {

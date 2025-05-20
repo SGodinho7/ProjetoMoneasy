@@ -59,6 +59,7 @@ public class SigninActivity extends AppCompatActivity {
         button_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                executorService.shutdown();
                 finish();
             }
         });

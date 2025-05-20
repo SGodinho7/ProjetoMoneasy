@@ -30,6 +30,10 @@ public class ApiConnect {
             //httpURLConnection.connect();
             Log.d("API", "Response Code: " + httpURLConnection.getResponseCode());
 
+            if (httpURLConnection.getResponseCode() != 200) {
+                return null;
+            }
+
             StringBuilder informationString = new StringBuilder();
             //Scanner scanner = new Scanner(url.openStream());
 
@@ -47,7 +51,7 @@ public class ApiConnect {
                 httpURLConnection.disconnect();
             }
         }
-        return new JSONObject();
+        return null;
     }
 
     public static void postData(String... params) {

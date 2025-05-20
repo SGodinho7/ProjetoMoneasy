@@ -4,12 +4,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
     Button buttonadd;
+    TextView test;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,5 +28,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        // Teste de get na API
+        test = findViewById(R.id.textView_test);
+        test.setText(Integer.toString(PMApplication.getCurrentUser().getId()));
+
     }
 }
