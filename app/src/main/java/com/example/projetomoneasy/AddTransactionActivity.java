@@ -55,7 +55,7 @@ public class AddTransactionActivity extends AppCompatActivity {
                     executorService.execute(new Runnable() {
                         @Override
                         public void run() {
-                            api.postData("http://10.0.2.2:5000/api/post-transaction", post_data.toString());
+                            ApiConnect.postData("http://10.0.2.2:5000/api/post-transaction", post_data.toString());
                         }
                     });
                     executorService.shutdown();

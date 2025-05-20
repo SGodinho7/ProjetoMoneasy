@@ -22,7 +22,7 @@
             android:name=".AddTransactionActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".StartActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

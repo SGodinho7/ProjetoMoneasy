@@ -16,7 +16,6 @@ import java.util.concurrent.Executors;
 public class SigninActivity extends AppCompatActivity {
 
     ExecutorService executorService = Executors.newSingleThreadExecutor();
-    ApiConnect api = new ApiConnect();
     Button button_confirm;
     Button button_cancel;
     EditText name;
@@ -45,7 +44,7 @@ public class SigninActivity extends AppCompatActivity {
                     executorService.execute(new Runnable() {
                         @Override
                         public void run() {
-                            api.postData("http://10.0.2.2:5000/api/post-user", post_data.toString());
+                            ApiConnect.postData("http://10.0.2.2:5000/api/post-user", post_data.toString());
                         }
                     });
                     executorService.shutdown();
