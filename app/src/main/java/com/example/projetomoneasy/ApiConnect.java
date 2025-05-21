@@ -2,6 +2,7 @@ package com.example.projetomoneasy;
 
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -26,8 +27,6 @@ public class ApiConnect {
             httpURLConnection.setRequestMethod("GET");
             InputStream inputStream = httpURLConnection.getInputStream();
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            //httpURLConnection.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
-            //httpURLConnection.connect();
             Log.d("API", "Response Code: " + httpURLConnection.getResponseCode());
 
             if (httpURLConnection.getResponseCode() != 200) {
@@ -35,14 +34,44 @@ public class ApiConnect {
             }
 
             StringBuilder informationString = new StringBuilder();
-            //Scanner scanner = new Scanner(url.openStream());
-
             while ((line = bufferedReader.readLine()) != null) {
                 informationString.append(line);
             }
-            //scanner.close();
 
             return new JSONObject(informationString.toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.d("API", "FAIL");
+        } finally {
+            if (httpURLConnection != null) {
+                httpURLConnection.disconnect();
+            }
+        }
+        return null;
+    }
+
+    public static JSONArray getDataArray(String address) {
+
+        String line = "";
+        HttpURLConnection httpURLConnection = null;
+        try {
+            URL url = new URL(address);
+            httpURLConnection = (HttpURLConnection) url.openConnection();
+            httpURLConnection.setRequestMethod("GET");
+            InputStream inputStream = httpURLConnection.getInputStream();
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            Log.d("API", "Response Code: " + httpURLConnection.getResponseCode());
+
+            if (httpURLConnection.getResponseCode() != 200) {
+                return null;
+            }
+
+            StringBuilder informationString = new StringBuilder();
+            while ((line = bufferedReader.readLine()) != null) {
+                informationString.append(line);
+            }
+
+            return new JSONArray(informationString.toString());
         } catch (Exception e) {
             e.printStackTrace();
             Log.d("API", "FAIL");
