@@ -7,16 +7,16 @@ import java.util.ArrayList;
 
 public class User {
     private int id;
-    private String nome;
+    private String name;
     private String email;
-    private String senha;
+    private String password;
     ArrayList<Transaction> transactions;
 
-    public void setInfo(int id, String nome, String email, String senha, JSONArray array) {
+    public void setInfo(int id, String name, String email, String password, JSONArray array) {
         this.id = id;
-        this.nome = nome;
+        this.name = name;
         this.email = email;
-        this.senha = senha;
+        this.password = password;
         setTransactions(array);
     }
 
