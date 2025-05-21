@@ -34,8 +34,8 @@ public class User {
         return balance;
     }
 
-    public void addTransaction(int id, float value, String desc, String date, int id_category) {
-        transactions.add(new Transaction(id, value, desc, date, id_category));
+    public void addTransaction(float value, String desc, String date, int id_category) {
+        transactions.add(new Transaction(value, desc, date, id_category));
     }
 
     private void setTransactions(JSONArray array) {
@@ -55,12 +55,11 @@ public class User {
         for(int i = 0; i < array.length(); i++) {
             try {
                 json = new JSONObject(array.get(i).toString());
-                id = json.getInt("id_transaction");
                 value = (float) json.getDouble("value");
                 desc = json.getString("desc");
                 date = json.getString("date");
                 id_category = json.getInt("id_category");
-                transactions.add(new Transaction(id, value, desc, date, id_category));
+                transactions.add(new Transaction(value, desc, date, id_category));
             } catch (Exception e) {
                 e.getCause().printStackTrace();
             }

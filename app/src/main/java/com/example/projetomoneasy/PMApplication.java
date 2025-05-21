@@ -8,10 +8,6 @@ import org.json.JSONObject;
 public class PMApplication extends Application {
     private static User current_user;
 
-    private void setCurrentUser(User user) {
-        current_user = user;
-    }
-
     public static User getCurrentUser() {
         return current_user;
     }
@@ -33,17 +29,4 @@ public class PMApplication extends Application {
 
         return false;
     }
-
-    /*public static void addUserTransaction(JSONObject json) {
-        try {
-            int id = 0;
-            float value = (float) json.getDouble("value");
-            String desc = json.getString("desc");
-            String date = json.getString("date");
-            int id_category = 0;
-            current_user.addTransaction(id, value, desc, date, id_category);
-        } catch (Exception e) {
-            e.getCause().printStackTrace();
-        }
-    }*/
 }

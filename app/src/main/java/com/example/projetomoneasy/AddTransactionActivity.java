@@ -59,7 +59,7 @@ public class AddTransactionActivity extends AppCompatActivity {
                             ApiConnect.postData("http://10.0.2.2:5000/api/post-transaction", post_data.toString());
                         }
                     });
-                    PMApplication.getCurrentUser().addTransaction(0, (float)post_data.getDouble("value"), post_data.getString("desc"), post_data.getString("date"), post_data.getInt("id_category"));
+                    PMApplication.getCurrentUser().addTransaction((float)post_data.getDouble("value"), post_data.getString("desc"), post_data.getString("date"), post_data.getInt("id_category"));
                     executorService.shutdown();
                     finish();
                 } catch (JSONException e) {

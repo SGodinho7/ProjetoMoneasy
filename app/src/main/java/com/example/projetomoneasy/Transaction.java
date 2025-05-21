@@ -1,14 +1,12 @@
 package com.example.projetomoneasy;
 
 public class Transaction {
-    private int id;
     private float value;
     private String desc;
     private String date;
     private int id_category;
 
-    public Transaction(int id, float value, String desc, String date, int id_category) {
-        this.id = id;
+    public Transaction(float value, String desc, String date, int id_category) {
         this.value = value;
         this.desc = desc;
         this.date = date;
