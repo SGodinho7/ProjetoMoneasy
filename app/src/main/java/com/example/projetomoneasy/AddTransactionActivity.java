@@ -48,10 +48,10 @@ public class AddTransactionActivity extends AppCompatActivity {
                 JSONObject post_data = new JSONObject();
                 try {
                     post_data.put("id_user", PMApplication.getCurrentUser().getId());
-                    post_data.put("value", value.getText().toString());
+                    post_data.put("value", String.valueOf(value.getText().toString()));
                     post_data.put("date", date.getText().toString());
                     post_data.put("desc", desc.getText().toString());
-                    post_data.put("category", category.getSelectedItem().toString());
+                    post_data.put("id_category", categoryStringToInt(category.getSelectedItem().toString()));
 
                     executorService.execute(new Runnable() {
                         @Override
@@ -59,6 +59,7 @@ public class AddTransactionActivity extends AppCompatActivity {
                             ApiConnect.postData("http://10.0.2.2:5000/api/post-transaction", post_data.toString());
                         }
                     });
+                    PMApplication.getCurrentUser().addTransaction(0, (float)post_data.getDouble("value"), post_data.getString("desc"), post_data.getString("date"), post_data.getInt("id_category"));
                     executorService.shutdown();
                     finish();
                 } catch (JSONException e) {
@@ -74,5 +75,19 @@ public class AddTransactionActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private int categoryStringToInt(String category) {
+        switch (category) {
+            case "Residência":
+                return 1;
+            case "Automóvel":
+                return 2;
+            case "Compras":
+                return 3;
+            case "Serviços":
+                return 4;
+        }
+        return 0;
     }
 }
